@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Dave-Health"</Description>
+      <VariableType>Float</VariableType>
+      <Address>0897B728</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Group-1 Jump"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tutorial-x86_64.exe"+2F25D) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+cmp [rbx+14],1
+je short exit
+
+originalcode:
+movss [rbx+08],xmm0
+
+exit:
+jmp returnhere
+
+"Tutorial-x86_64.exe"+2F25D:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tutorial-x86_64.exe"+2F25D:
+movss [rbx+08],xmm0
+//Alt: db F3 0F 11 43 08
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Dave-Instruction :movss [rbx+08],xmm0</Description>
+      <AddressString>Tutorial-x86_64.exe+2F25D</AddressString>
+      <Before>
+        <Byte>EB</Byte>
+        <Byte>03</Byte>
+        <Byte>0F</Byte>
+        <Byte>28</Byte>
+        <Byte>C1</Byte>
+      </Before>
+      <Actual>
+        <Byte>F3</Byte>
+        <Byte>0F</Byte>
+        <Byte>11</Byte>
+        <Byte>43</Byte>
+        <Byte>08</Byte>
+      </Actual>
+      <After>
+        <Byte>0F</Byte>
+        <Byte>2F</Byte>
+        <Byte>05</Byte>
+        <Byte>6F</Byte>
+        <Byte>87</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>
