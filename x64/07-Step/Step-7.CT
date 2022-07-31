@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"Health"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0016A490</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Health-Add-2"</Description>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tutorial-x86_64.exe"+2DB57) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+add dword ptr [rsi+000007E0],02
+
+originalcode:
+//sub dword ptr [rsi+000007E0],01
+
+exit:
+jmp returnhere
+
+"Tutorial-x86_64.exe"+2DB57:
+jmp newmem
+nop 2
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tutorial-x86_64.exe"+2DB57:
+sub dword ptr [rsi+000007E0],01
+//Alt: db 83 AE E0 07 00 00 01
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <CheatCodes>
+    <CodeEntry>
+      <Description>Health-Sub :sub dword ptr [rsi+000007E0],01</Description>
+      <AddressString>Tutorial-x86_64.exe+2DB57</AddressString>
+      <Before>
+        <Byte>9E</Byte>
+        <Byte>E0</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+      </Before>
+      <Actual>
+        <Byte>83</Byte>
+        <Byte>AE</Byte>
+        <Byte>E0</Byte>
+        <Byte>07</Byte>
+        <Byte>00</Byte>
+        <Byte>00</Byte>
+        <Byte>01</Byte>
+      </Actual>
+      <After>
+        <Byte>48</Byte>
+        <Byte>8D</Byte>
+        <Byte>4D</Byte>
+        <Byte>F8</Byte>
+        <Byte>E8</Byte>
+      </After>
+    </CodeEntry>
+  </CheatCodes>
+  <UserdefinedSymbols/>
+</CheatTable>

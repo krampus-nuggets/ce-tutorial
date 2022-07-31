@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"Value"</Description>
+      <VariableType>2 Bytes</VariableType>
+      <Address>000F8338</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Value"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>000F8338</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>3</ID>
+      <Description>"Value"</Description>
+      <VariableType>8 Bytes</VariableType>
+      <Address>000F8338</Address>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
