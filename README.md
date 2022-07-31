@@ -1,0 +1,3 @@
+# Cheat Engine - Tutorial Series
+
+Learned about CE as a kid, failed at doing the tutorial series abysmally. Decided to try it out again...
