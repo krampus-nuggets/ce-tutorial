@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="42">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>0</ID>
+      <Description>"01-Value"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>00113E48</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"02-Value"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>0017AD88</Address>
+    </CheatEntry>
+    <CheatEntry>
+      <ID>2</ID>
+      <Description>"Value-Pointer"</Description>
+      <VariableType>4 Bytes</VariableType>
+      <Address>"Tutorial-x86_64.exe"+00325B00</Address>
+      <Offsets>
+        <Offset>18</Offset>
+        <Offset>0</Offset>
+        <Offset>18</Offset>
+        <Offset>10</Offset>
+      </Offsets>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+</CheatTable>
