@@ -1,0 +1,30 @@
+[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"Tutorial-x86_64.exe"+2F25D) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+cmp [rbx+14],1
+je short exit
+
+originalcode:
+movss [rbx+08],xmm0
+
+exit:
+jmp returnhere
+
+"Tutorial-x86_64.exe"+2F25D:
+jmp newmem
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"Tutorial-x86_64.exe"+2F25D:
+movss [rbx+08],xmm0
+//Alt: db F3 0F 11 43 08
